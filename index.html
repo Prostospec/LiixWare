@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LiixWare — Поддержка проекта</title>
   <style>
+    /* Видео на фон */
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.4); /* затемнение видео, чтобы текст читался лучше */
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #121212;
@@ -15,6 +28,8 @@
       padding: 2rem;
       min-height: 100vh;
       margin: 0;
+      position: relative; /* для корректного позиционирования поверх видео */
+      z-index: 0;
     }
     h1 {
       color: #7fff00;
@@ -26,9 +41,13 @@
       margin-bottom: 2rem;
       font-size: 1.1rem;
       line-height: 1.5;
+      z-index: 1;
+      position: relative;
     }
     .donate-button {
       margin-bottom: 3rem;
+      z-index: 1;
+      position: relative;
     }
     .donate-button a {
       background-color: #7fff00;
@@ -48,6 +67,8 @@
     }
     .contact {
       font-size: 1.1rem;
+      z-index: 1;
+      position: relative;
     }
     .contact a {
       color: #7fff00;
@@ -61,10 +82,18 @@
       margin-top: auto;
       font-size: 0.9rem;
       color: #444;
+      z-index: 1;
+      position: relative;
     }
   </style>
 </head>
 <body>
+
+  <!-- Видео на фоне -->
+  <video autoplay muted loop id="bg-video">
+    <source src="videos/background.mp4" type="video/mp4" />
+    Ваш браузер не поддерживает видео.
+  </video>
 
   <h1>Поддержите LiixWare</h1>
 
