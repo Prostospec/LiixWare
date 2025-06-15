@@ -5,40 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LiixWare — Поддержка проекта</title>
   <style>
-    /* Видео на фон с эффектами */
-    #bg-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -1;
-      object-fit: cover;
-      filter: brightness(0.35) blur(3px);
-      transition: filter 1s ease;
-    }
-    #bg-video:hover {
-      filter: brightness(0.45) blur(2px);
-    }
-
     body {
+      margin: 0;
+      padding: 2rem;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #121212;
       color: #e0e0e0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem;
-      min-height: 100vh;
-      margin: 0;
+      background: #121212;
       position: relative;
-      z-index: 0;
+      overflow: hidden;
+    }
+    video#bg-video {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.3);
     }
     h1 {
       color: #7fff00;
       text-shadow: 0 0 8px #7fff00;
+      z-index: 1;
     }
     .description {
       max-width: 600px;
@@ -47,12 +37,10 @@
       font-size: 1.1rem;
       line-height: 1.5;
       z-index: 1;
-      position: relative;
     }
     .donate-button {
       margin-bottom: 3rem;
       z-index: 1;
-      position: relative;
     }
     .donate-button a {
       background-color: #7fff00;
@@ -73,7 +61,6 @@
     .contact {
       font-size: 1.1rem;
       z-index: 1;
-      position: relative;
     }
     .contact a {
       color: #7fff00;
@@ -88,16 +75,15 @@
       font-size: 0.9rem;
       color: #444;
       z-index: 1;
-      position: relative;
     }
   </style>
 </head>
 <body>
 
-  <!-- Видео на фоне -->
-  <video autoplay muted loop id="bg-video">
-  <source src="videos/background.mp4" type="video/mp4" />
-</video>
+  <video autoplay muted loop id="bg-video" playsinline>
+    <source src="videos/background.mp4" type="video/mp4" />
+    Ваш браузер не поддерживает видео.
+  </video>
 
   <h1>Поддержите LiixWare</h1>
 
