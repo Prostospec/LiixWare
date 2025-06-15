@@ -23,7 +23,19 @@
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(0.3);
+      animation: fadeInOut 15s ease-in-out infinite, sway 5s ease-in-out infinite;
+    }
+    /* Анимация плавного затемнения */
+    @keyframes fadeInOut {
+      0%, 100% { filter: brightness(0); }
+      10%, 90% { filter: brightness(0.3); }
+    }
+    /* Анимация плавного покачивания */
+    @keyframes sway {
+      0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+      25% { transform: translateX(5px) translateY(3px) rotate(1deg); }
+      50% { transform: translateX(0) translateY(5px) rotate(0deg); }
+      75% { transform: translateX(-5px) translateY(3px) rotate(-1deg); }
     }
     h1 {
       color: #7fff00;
@@ -81,20 +93,19 @@
 <body>
 
   <video autoplay muted loop id="bg-video" playsinline>
-   <source src="videos/background.mp4" type="video/mp4" />
+    <source src="videos/background.mp4" type="video/mp4" />
     Ваш браузер не поддерживает видео.
   </video>
 
   <h1>Поддержите LiixWare</h1>
 
   <div class="description">
-    Спасибо, что используете наш софт! Если хотите поддержать развитие и новые функции, вы можете сделать донат.  
-    Все средства идут на улучшение проекта и поддержание сервера подписок.
+    Спасибо, что используете или собираетесь купить наш софт, покупка осуществляется на сайте Donation Alerts после прочтения обязательной регистрации в нашем телеграмм боте перед покупкой и подключения к боту свой Donation Alerts можете покупать и заходить к боту он проверит оплату и выдаст ключ
   </div>
 
   <div class="donate-button">
     <a href="https://www.donationalerts.com/r/prosto_b1?" target="_blank" rel="noopener noreferrer">
-      Сделать донат
+      Купить
     </a>
   </div>
 
