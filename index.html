@@ -19,21 +19,25 @@
       overflow: hidden;
     }
 
-    /* Фоновое видео с водным эффектом */
+    /* Фоновое видео с эффектом размытия и волны */
     video#bg-video {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(0.6) contrast(1.2) saturate(1.5) hue-rotate(170deg);
-      animation: ripple 4s infinite linear;
-      transform-origin: center;
+      filter: brightness(0.6) contrast(1.2) saturate(1.5) blur(1.2px);
+      animation: waveBlur 6s ease-in-out infinite;
     }
 
-    @keyframes ripple {
-      0% { transform: translate(0, 0) scale(1); filter: brightness(0.6) contrast(1.2) saturate(1.5) hue-rotate(170deg); }
-      50% { transform: translate(5px, 3px) scale(1.02); filter: brightness(0.7) contrast(1.3) saturate(1.6) hue-rotate(175deg);}
-      100% { transform: translate(0, 0) scale(1); filter: brightness(0.6) contrast(1.2) saturate(1.5) hue-rotate(170deg);}
+    @keyframes waveBlur {
+      0%, 100% {
+        filter: brightness(0.6) contrast(1.2) saturate(1.5) blur(1.2px);
+        transform: translateX(0) translateY(0);
+      }
+      50% {
+        filter: brightness(0.65) contrast(1.25) saturate(1.6) blur(1.6px);
+        transform: translateX(7px) translateY(4px);
+      }
     }
 
     /* Анимации */
@@ -99,6 +103,7 @@
         0 0 40px #7fff00;
       transition: box-shadow 0.3s ease, background-color 0.3s ease;
       display: inline-block;
+      animation: neonGlow 3s ease-in-out infinite;
     }
 
     .donate-button a:hover,
@@ -112,11 +117,6 @@
     }
 
     /* Анимация свечения кнопок */
-    .donate-button a,
-    .support-button a {
-      animation: neonGlow 3s ease-in-out infinite;
-    }
-
     @keyframes neonGlow {
       0%, 100% {
         box-shadow:
