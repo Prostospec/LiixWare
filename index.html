@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LiixWare — Купите сейчас</title>
+  <title>LiixWare — Поддержка проекта</title>
   <style>
     body {
       margin: 0;
@@ -19,14 +19,22 @@
       overflow: hidden;
     }
 
+    /* Фоновое видео */
     video#bg-video {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
       filter: brightness(0.35);
+      animation: bgFadeIn 0.5s ease forwards;
     }
 
+    @keyframes bgFadeIn {
+      0% { filter: brightness(0); }
+      100% { filter: brightness(0.35); }
+    }
+
+    /* Анимации */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -51,18 +59,17 @@
       animation: blink 2s infinite;
     }
 
-    .description, .donate-button, .support-button-1, .support-button-2, .contact, .legal, footer {
-      animation: fadeIn 0.8s ease forwards;
+    .description, .donate-button, .support-button, .contact, .legal, footer {
+      animation: fadeIn 1s ease forwards;
       opacity: 0;
     }
 
     .description { animation-delay: 0.3s; }
-    .donate-button { animation-delay: 0.5s; }
-    .support-button-1 { animation-delay: 0.7s; }
-    .support-button-2 { animation-delay: 0.9s; }
-    .contact { animation-delay: 1.1s; }
-    .legal { animation-delay: 1.3s; }
-    footer { animation-delay: 1.5s; }
+    .donate-button { animation-delay: 1.3s; }
+    .support-button { animation-delay: 1.3s; }
+    .contact { animation-delay: 1.5s; }
+    .legal { animation-delay: 1.7s; }
+    footer { animation-delay: 1.9s; }
 
     .description {
       max-width: 600px;
@@ -73,27 +80,39 @@
       z-index: 1;
     }
 
-    .donate-button,
-    .support-button-1,
-    .support-button-2 {
+    .donate-button, .support-button {
       margin-bottom: 1.5rem;
       z-index: 1;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
     }
 
-    .neon-button {
+    .donate-button a,
+    .support-button a,
+    .support-button a[href^="https://t.me"] {
       position: relative;
-      display: inline-block;
+      background-color: #7fff00;
+      color: #121212;
+      text-decoration: none;
       padding: 12px 28px;
       font-weight: 700;
       font-size: 1.1rem;
-      text-decoration: none;
-      color: #121212;
       border-radius: 10px;
-      background-color: #7fff00;
-      overflow: hidden;
+      box-shadow: 0 0 15px #7fff00;
+      transition: background-color 0.3s ease;
+      display: inline-block;
       z-index: 1;
+      overflow: hidden;
     }
 
+    .donate-button a:hover,
+    .support-button a:hover {
+      background-color: #5ac600;
+      box-shadow: 0 0 25px #5ac600;
+    }
+
+    /* Анимация линий на кнопках */
     .neon-button::before {
       content: "";
       position: absolute;
@@ -101,21 +120,17 @@
       width: 100%;
       height: 100%;
       background-image: repeating-linear-gradient(
-        -30deg,
+        30deg,
         rgba(0, 0, 0, 0.2) 0px,
-        rgba(0, 0, 0, 0.2) 4px,
-        rgba(127, 255, 0, 0.6) 4px,
-        rgba(127, 255, 0, 0.6) 8px
+        rgba(0, 0, 0, 0.2) 10px,
+        rgba(127, 255, 0, 0.6) 10px,
+        rgba(127, 255, 0, 0.6) 20px
       );
       background-size: 200% 200%;
       animation: shimmer 0.75s linear infinite;
       border-radius: 10px;
       z-index: 0;
-    }
-
-    .neon-button span {
-      position: relative;
-      z-index: 1;
+      pointer-events: none;
     }
 
     .contact {
@@ -159,6 +174,7 @@
       text-align: center;
     }
 
+    /* Водяной знак */
     .watermark {
       position: fixed;
       bottom: 10px;
@@ -180,27 +196,28 @@
     Ваш браузер не поддерживает видео.
   </video>
 
-  <h1>Купите LiixWare</h1>
+  <h1>Поддержите LiixWare</h1>
 
   <div class="description">
-    ❤️Спасибо, что используете или собираетесь купить наш софт. Покупка осуществляется через Donation Alerts после обязательной регистрации в Telegram-боте. После подключения бота вы сможете оплатить и получить ключ 🔑.
+    ❤️Спасибо, что используете или собираетесь купить наш софт, покупка осуществляется на сайте Donation Alerts после прочтения обязательной регистрации в нашем
+    телеграмм боте перед покупкой и подключения к боту свой Donation Alerts можете покупать и заходить к боту он проверит оплату и выдаст ключ🔑
   </div>
 
   <div class="donate-button">
     <a class="neon-button" href="https://www.donationalerts.com/r/prosto_b1?" target="_blank" rel="noopener noreferrer">
-      <span>💸 Купить софт</span>
+      💸 Купить софт
     </a>
   </div>
 
-  <div class="support-button-1">
+  <div class="support-button">
     <a class="neon-button" href="https://github.com/Prostospec/LiixWare/releases/latest/download/launcher.exe" download>
-      <span>📥 Скачать лаунчер</span>
+      📥 Скачать лаунчер
     </a>
   </div>
 
-  <div class="support-button-2">
+  <div class="support-button">
     <a class="neon-button" href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">
-      <span>🤖 Связаться с ботом</span>
+      🤖 Связаться с ботом
     </a>
   </div>
 
