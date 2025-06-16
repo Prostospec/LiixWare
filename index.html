@@ -19,8 +19,7 @@
       overflow: hidden;
     }
 
-    /* Анимация фона: появление, покачивание, затемнение с увеличенной длительностью скрытия */
-
+    /* Анимация фона: зацикленное покачивание с затемнением в конце и плавным появлением */
     @keyframes bgFadeInOutSwing {
       0% {
         filter: brightness(0);
@@ -46,6 +45,10 @@
         opacity: 1;
         transform: rotate(0deg) scale(1);
       }
+      95% {
+        filter: brightness(0);
+        opacity: 0.8;
+      }
       100% {
         filter: brightness(0);
         opacity: 0;
@@ -57,8 +60,8 @@
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
-      animation: bgFadeInOutSwing 12s ease-in-out forwards;
-      /* Сделал длиннее (12с) для более плавного скрытия */
+      animation: bgFadeInOutSwing 12s ease-in-out infinite;
+      /* зацикленная анимация */
     }
 
     @keyframes fadeIn {
@@ -70,8 +73,6 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.6; }
     }
-
-    /* Плавное бесконечное пульсирование свечения кнопок без яркого всплеска в начале */
 
     @keyframes neonPulse {
       0% {
@@ -216,7 +217,7 @@
     Ваш браузер не поддерживает видео.
   </video>
 
-  <h1>Поддержите LiixWare</h1>
+  <h1>Купите LiixWare!</h1>
 
   <div class="description">
     ❤️Спасибо, что используете или собираетесь купить наш софт, покупка осуществляется на сайте Donation Alerts после прочтения обязательной регистрации в нашем
