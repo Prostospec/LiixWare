@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LiixWare — Купите проект</title>
+  <title>LiixWare — Купите LiixWare</title>
   <style>
     body {
       margin: 0;
@@ -25,12 +25,6 @@
       object-fit: cover;
       z-index: -1;
       filter: brightness(0.35);
-      animation: bgFade 0.5s ease-in;
-    }
-
-    @keyframes bgFade {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     @keyframes fadeIn {
@@ -46,10 +40,10 @@
     h1 {
       color: #7fff00;
       text-shadow: 0 0 8px #7fff00;
+      z-index: 1;
       font-size: 2.5rem;
       text-align: center;
       animation: blink 2s infinite;
-      z-index: 1;
     }
 
     .description, .donate-button, .support-button, .contact, .legal, footer {
@@ -63,7 +57,7 @@
     .support-button:nth-of-type(2) { animation-delay: 1.2s; }
     .contact { animation-delay: 1.5s; }
     .legal { animation-delay: 1.8s; }
-    footer { animation-delay: 2s; }
+    footer { animation-delay: 2.1s; }
 
     .description {
       max-width: 600px;
@@ -98,18 +92,18 @@
     .neon-button::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
+      top: 0;
+      left: -100%;
+      width: 300%;
+      height: 100%;
       background: repeating-linear-gradient(
-        30deg,
-        rgba(0, 0, 0, 0.4) 0px,
-        rgba(0, 0, 0, 0.4) 4px,
-        rgba(127, 255, 0, 0.3) 4px,
-        rgba(127, 255, 0, 0.3) 8px
+        45deg,
+        rgba(0, 0, 0, 0.3) 0,
+        rgba(0, 0, 0, 0.3) 8px,
+        rgba(127, 255, 0, 0.3) 8px,
+        rgba(127, 255, 0, 0.3) 16px
       );
-      animation: shimmer 3s linear infinite;
+      animation: shimmer-fixed 4s linear infinite;
       pointer-events: none;
       z-index: 1;
     }
@@ -119,9 +113,9 @@
       z-index: 2;
     }
 
-    @keyframes shimmer {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(100px, 100px); }
+    @keyframes shimmer-fixed {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(33%); }
     }
 
     .contact {
@@ -188,7 +182,8 @@
   <h1>Купите LiixWare</h1>
 
   <div class="description">
-    ❤️Спасибо, что используете или собираетесь купить наш софт. Покупка осуществляется на сайте Donation Alerts. Обязательно зарегистрируйтесь в Telegram-боте перед оплатой. Подключите свой аккаунт Donation Alerts, оплатите — и бот автоматически выдаст ключ 🔑
+    ❤️ Спасибо, что используете или собираетесь купить наш софт. Покупка осуществляется на сайте Donation Alerts после регистрации в нашем
+    телеграм-боте. Подключите к боту свой Donation Alerts, совершите оплату — и он выдаст вам ключ 🔑.
   </div>
 
   <div class="donate-button">
@@ -217,7 +212,7 @@
     <h3>Условия использования</h3>
     <p>
       Совершая пожертвование, вы подтверждаете добровольность платежа и понимаете, что <strong>возврат средств не осуществляется</strong>.
-      Ключи выдаются через Telegram-бота автоматически.
+      Ключи выдаются через Telegram-бота вручную.
     </p>
     <p>
       Мы не собираем и не передаём ваши персональные данные третьим лицам. Использование ПО осуществляется на ваш страх и риск.
