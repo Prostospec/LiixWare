@@ -19,12 +19,45 @@
       overflow: hidden;
     }
 
+    /* Фон с анимацией: плавное появление, покачивание и затемнение */
+    @keyframes bgFadeInOutSwing {
+      0% {
+        filter: brightness(0);
+        transform: rotate(0deg) scale(1);
+        opacity: 0;
+      }
+      10% {
+        filter: brightness(0.35);
+        opacity: 1;
+      }
+      40% {
+        transform: rotate(1deg) scale(1.02);
+        filter: brightness(0.4);
+        opacity: 1;
+      }
+      60% {
+        transform: rotate(-1deg) scale(1.03);
+        filter: brightness(0.35);
+        opacity: 1;
+      }
+      90% {
+        filter: brightness(0.35);
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+      }
+      100% {
+        filter: brightness(0);
+        opacity: 0;
+      }
+    }
+
     video#bg-video {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(0.35);
+      animation: bgFadeInOutSwing 30s ease-in-out forwards;
+      /* Убрал фильтр из style, теперь в анимации */
     }
 
     @keyframes fadeIn {
@@ -37,23 +70,22 @@
       50% { opacity: 0.6; }
     }
 
-    /* Анимация неонового свечения с плавным переливом */
-    @keyframes neonGlow {
+    @keyframes neonPulse {
       0%, 100% {
         box-shadow:
-          0 0 5px #7fff00,
-          0 0 10px #7fff00,
+          0 0 6px #7fff00,
+          0 0 15px #7fff00,
           0 0 20px #7fff00,
-          0 0 40px #7fff00;
+          0 0 30px #7fff00;
         color: #7fff00;
         border-color: #7fff00;
       }
       50% {
         box-shadow:
-          0 0 10px #a6ff4d,
-          0 0 20px #a6ff4d,
-          0 0 30px #a6ff4d,
-          0 0 50px #a6ff4d;
+          0 0 12px #a6ff4d,
+          0 0 25px #a6ff4d,
+          0 0 35px #a6ff4d,
+          0 0 45px #a6ff4d;
         color: #a6ff4d;
         border-color: #a6ff4d;
       }
@@ -104,9 +136,10 @@
       font-size: 1.1rem;
       border-radius: 10px;
       border: 2px solid #7fff00;
-      animation: neonGlow 3s ease-in-out infinite;
+      animation: neonPulse 3.5s ease-in-out infinite;
       display: inline-block;
       transition: transform 0.3s ease;
+      user-select: none;
     }
 
     .neon-button:hover {
@@ -174,7 +207,7 @@
     Ваш браузер не поддерживает видео.
   </video>
 
-  <h1>Купите LiixWare!</h1>
+  <h1>Поддержите LiixWare</h1>
 
   <div class="description">
     ❤️Спасибо, что используете или собираетесь купить наш софт, покупка осуществляется на сайте Donation Alerts после прочтения обязательной регистрации в нашем
