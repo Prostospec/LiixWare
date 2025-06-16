@@ -157,9 +157,24 @@
     footer {
       margin-top: auto;
       font-size: 0.9rem;
-      color: #444;
+      color: #aaa;
       z-index: 1;
       text-align: center;
+      padding: 1rem 0;
+      background: rgba(0, 0, 0, 0.4);
+      width: 100%;
+      box-sizing: border-box;
+      user-select: none;
+      pointer-events: none;
+    }
+    footer a {
+      color: #7fff00;
+      pointer-events: auto;
+      user-select: text;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
 
     /* Водяной знак */
@@ -238,3 +253,11 @@
       Минимальный возраст пользователя: 13 лет. Использование в коммерческих целях возможно только по отдельной договорённости.
     </p>
   </div>
+
+  <footer>
+    &copy; 2025 LiixWare. Все права защищены.<br />
+    Трек и весь контент защищены авторским правом.<br />
+    По вопросам и предложениям: <a href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">@liixbuybot</a>
+  </footer>
+</body>
+</html>
