@@ -27,7 +27,7 @@
       object-fit: cover;
       z-index: -1;
       filter: brightness(0.35);
-      animation: bgSway 20s ease-in-out infinite, bgDarken 4s ease forwards;
+      animation: bgSway 20s ease-in-out infinite, bgBrightness 8s ease-in-out infinite;
     }
 
     /* Анимации */
@@ -51,9 +51,9 @@
       100% { background-color: #121212; }
     }
 
-    @keyframes bgDarken {
-      0%, 95% { filter: brightness(0.35); }
-      100% { filter: brightness(0); }
+    @keyframes bgBrightness {
+      0%, 100% { filter: brightness(0.35); }
+      50% { filter: brightness(0.5); }
     }
 
     h1 {
@@ -140,10 +140,25 @@
       margin-bottom: 2rem;
     }
 
-    .contact a {
+    .contact a.neon-button {
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 10px;
+      display: inline-block;
+      border: 2px solid #7fff00;
+      box-shadow:
+        0 0 10px #7fff00,
+        0 0 20px #7fff00,
+        0 0 30px #7fff00;
+      animation: neonPulse 4s ease-in-out infinite;
       color: #7fff00;
       text-decoration: none;
-      font-weight: 600;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+
+    .contact a.neon-button:hover {
+      transform: scale(1.05);
     }
 
     .contact a:hover {
@@ -197,7 +212,7 @@
     Ваш браузер не поддерживает видео.
   </video>
 
-  <h1>Купите LiixWare!</h1>
+  <h1>Поддержите LiixWare</h1>
 
   <div class="description">
     ❤️Спасибо, что используете или собираетесь купить наш софт, покупка осуществляется на сайте Donation Alerts после прочтения обязательной регистрации в нашем
@@ -216,8 +231,8 @@
     </a>
   </div>
 
-  <div class="support-button">
-    <a href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">
+  <div class="support-button contact">
+    <a class="neon-button" href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">
       🤖 Связаться с ботом
     </a>
   </div>
