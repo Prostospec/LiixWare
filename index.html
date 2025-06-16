@@ -55,14 +55,6 @@
     transition: opacity 0.5s ease;
   }
 
-  /* Скрытие/появление для плавной смены текста */
-  #background-text.fade-out {
-    opacity: 0;
-  }
-  #background-text.fade-in {
-    opacity: 1;
-  }
-
   /* Основной контент */
   main {
     position: relative;
@@ -140,10 +132,10 @@
   </video>
 
   <!-- Текст на фоне -->
-  <div id="background-text" class="fade-in">Поддержите LiixWare</div>
+  <div id="background-text">Купите LiixWare</div>
 
   <main>
-    <h1>Поддержите LiixWare</h1>
+    <h1>Купите LiixWare</h1>
     <div class="description">
       ❤️Спасибо, что используете или собираетесь купить наш софт, покупка осуществляется на сайте Donation Alerts после прочтения обязательной регистрации в нашем
       телеграмм боте перед покупкой и подключения к боту свой Donation Alerts можете покупать и заходить к боту он проверит оплату и выдаст ключ🔑
@@ -157,25 +149,6 @@
       Вопросы? Пиши нам: <a href="https://t.me/liixbuybot" target="_blank">@liixbuybot</a>
     </div>
   </main>
-
-<script>
-  // Автоматическая смена текста на фоне
-  const bgText = document.getElementById('background-text');
-  const texts = ['Поддержите LiixWare', 'Купите LiixWare'];
-  let current = 0;
-
-  function switchText() {
-    bgText.classList.add('fade-out');
-    setTimeout(() => {
-      current = (current + 1) % texts.length;
-      bgText.textContent = texts[current];
-      bgText.classList.remove('fade-out');
-      bgText.classList.add('fade-in');
-    }, 500); // соответствует transition opacity 0.5s
-  }
-
-  setInterval(switchText, 4000); // смена каждые 4 секунды
-</script>
 
 </body>
 </html>
