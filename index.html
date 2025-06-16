@@ -34,7 +34,15 @@
       100% { filter: brightness(0.35); }
     }
 
-    /* Анимации */
+    @keyframes bgPulse {
+      0%, 100% { filter: brightness(0.35); }
+      50% { filter: brightness(0.45); }
+    }
+
+    video#bg-video {
+      animation: bgFadeIn 0.5s ease forwards, bgPulse 8s ease-in-out infinite;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -43,11 +51,6 @@
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.6; }
-    }
-
-    @keyframes shimmer {
-      0% { background-position: -150% 150%; }
-      100% { background-position: 150% -150%; }
     }
 
     h1 {
@@ -65,11 +68,11 @@
     }
 
     .description { animation-delay: 0.3s; }
-    .donate-button { animation-delay: 1.3s; }
-    .support-button { animation-delay: 1.3s; }
-    .contact { animation-delay: 1.5s; }
-    .legal { animation-delay: 1.7s; }
-    footer { animation-delay: 1.9s; }
+    .donate-button { animation-delay: 0.5s; }
+    .support-button { animation-delay: 0.7s; }
+    .contact { animation-delay: 0.9s; }
+    .legal { animation-delay: 1.1s; }
+    footer { animation-delay: 1.3s; }
 
     .description {
       max-width: 600px;
@@ -80,17 +83,14 @@
       z-index: 1;
     }
 
-    .donate-button, .support-button {
+    .donate-button, .support-button, .contact-button {
       margin-bottom: 1.5rem;
       z-index: 1;
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
     }
 
     .donate-button a,
     .support-button a,
-    .support-button a[href^="https://t.me"] {
+    .contact-button a {
       position: relative;
       background-color: #7fff00;
       color: #121212;
@@ -102,35 +102,47 @@
       box-shadow: 0 0 15px #7fff00;
       transition: background-color 0.3s ease;
       display: inline-block;
-      z-index: 1;
       overflow: hidden;
+      z-index: 1;
     }
 
     .donate-button a:hover,
-    .support-button a:hover {
+    .support-button a:hover,
+    .contact-button a:hover {
       background-color: #5ac600;
       box-shadow: 0 0 25px #5ac600;
     }
 
-    /* Анимация линий на кнопках */
-    .neon-button::before {
+    /* Анимация линий */
+    @keyframes shimmer {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 200% 0%;
+      }
+    }
+
+    .donate-button a::before,
+    .support-button a::before,
+    .contact-button a::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background-image: repeating-linear-gradient(
-        30deg,
-        rgba(0, 0, 0, 0.2) 0px,
-        rgba(0, 0, 0, 0.2) 10px,
-        rgba(127, 255, 0, 0.6) 10px,
-        rgba(127, 255, 0, 0.6) 20px
-      );
-      background-size: 200% 200%;
-      animation: shimmer 0.75s linear infinite;
       border-radius: 10px;
-      z-index: 0;
       pointer-events: none;
+      z-index: 0;
+      background-image: repeating-linear-gradient(
+        25deg,
+        rgba(0, 0, 0, 0.2) 0px,
+        rgba(0, 0, 0, 0.2) 6px,
+        rgba(127, 255, 0, 0.6) 6px,
+        rgba(127, 255, 0, 0.6) 12px
+      );
+      background-size: 200% 100%;
+      animation: shimmer 0.68s linear infinite;
     }
 
     .contact {
@@ -215,8 +227,8 @@
     </a>
   </div>
 
-  <div class="support-button">
-    <a class="neon-button" href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">
+  <div class="contact-button">
+    <a href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">
       🤖 Связаться с ботом
     </a>
   </div>
