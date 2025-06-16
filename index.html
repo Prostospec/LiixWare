@@ -27,15 +27,15 @@
       z-index: -1;
       filter: brightness(0.6) contrast(1.2) saturate(1.5) blur(1.2px);
       animation: waveBlur 6s ease-in-out infinite;
+      /* Наложим SVG-фильтр для искажения */
+      filter: url(#wavy) brightness(0.6) contrast(1.2) saturate(1.5) blur(1.2px);
     }
 
     @keyframes waveBlur {
       0%, 100% {
-        filter: brightness(0.6) contrast(1.2) saturate(1.5) blur(1.2px);
         transform: translateX(0) translateY(0);
       }
       50% {
-        filter: brightness(0.65) contrast(1.25) saturate(1.6) blur(1.6px);
         transform: translateX(7px) translateY(4px);
       }
     }
@@ -190,6 +190,16 @@
   </style>
 </head>
 <body>
+
+  <!-- SVG фильтр для искажения волнами -->
+  <svg style="position:absolute; width:0; height:0;">
+    <filter id="wavy">
+      <feTurbulence id="turbulence" baseFrequency="0.02 0.04" numOctaves="2" result="turbulence" seed="2">
+        <animate attributeName="baseFrequency" dur="8s" values="0.02 0.04; 0.04 0.02; 0.02 0.04" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="15" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
 
   <!-- Видео -->
   <video autoplay muted loop id="bg-video" playsinline>
