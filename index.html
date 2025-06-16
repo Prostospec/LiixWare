@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LiixWare — Поддержка проекта</title>
 
-  <!-- Google Site Verification -->
-  <meta name="google-site-verification" content="Q1jpVWfkwkhi6o5GhPu0Vo88ny0NbzSmtLxhQgS0VX8" />
-
   <!-- Иконки -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
@@ -40,7 +37,8 @@
       align-items: center;
       background: #121212;
       position: relative;
-      overflow: hidden;
+      /* Убираем overflow:hidden чтобы разрешить прокрутку */
+      overflow-y: auto;
     }
 
     /* Фоновое видео */
@@ -80,10 +78,9 @@
     .description { animation-delay: 0.3s; }
     .donate-button { animation-delay: 0.5s; }
     .support-button { animation-delay: 0.7s; }
-    .support-button-second { animation-delay: 0.9s; }
-    .contact { animation-delay: 1.1s; }
-    .legal { animation-delay: 1.3s; }
-    footer { animation-delay: 1.5s; }
+    .contact { animation-delay: 0.9s; }
+    .legal { animation-delay: 1.1s; }
+    footer { animation-delay: 1.3s; }
 
     .description {
       max-width: 600px;
@@ -94,7 +91,7 @@
       z-index: 1;
     }
 
-    .donate-button, .support-button, .support-button-second {
+    .donate-button, .support-button {
       margin-bottom: 1.5rem;
       z-index: 1;
       text-align: center;
@@ -111,7 +108,7 @@
       font-size: 1.1rem;
       border-radius: 10px;
       box-shadow: 0 0 15px #7fff00;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
       user-select: none;
       white-space: nowrap;
       border: 2px solid #0f0;
@@ -177,6 +174,23 @@
       pointer-events: none;
       user-select: none;
     }
+
+    /* Адаптив для мобильных */
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      a.button {
+        font-size: 1rem;
+        padding: 10px 16px 10px 20px;
+      }
+      .description {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -202,7 +216,7 @@
     <a class="button" href="https://github.com/Prostospec/LiixWare/releases/latest/download/launcher.exe" download>📥 Скачать лаунчер</a>
   </div>
 
-  <div class="support-button support-button-second">
+  <div class="support-button">
     <a class="button" href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">🤖 Связаться с ботом</a>
   </div>
 
