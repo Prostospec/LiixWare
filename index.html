@@ -19,14 +19,15 @@
       overflow: hidden;
     }
 
-    /* Анимация фона: зацикленное покачивание с затемнением в конце и плавным появлением */
+    /* Анимация фона: плавное покачивание, плавный fade-in в начале, плавный fade-out в конце,
+       без резкого затемнения при повторе (зациклена) */
     @keyframes bgFadeInOutSwing {
       0% {
-        filter: brightness(0);
-        opacity: 0;
+        filter: brightness(1);
+        opacity: 1;
         transform: rotate(0deg) scale(1);
       }
-      5% {
+      10% {
         filter: brightness(1);
         opacity: 1;
       }
@@ -61,7 +62,6 @@
       object-fit: cover;
       z-index: -1;
       animation: bgFadeInOutSwing 12s ease-in-out infinite;
-      /* зацикленная анимация */
     }
 
     @keyframes fadeIn {
@@ -74,8 +74,9 @@
       50% { opacity: 0.6; }
     }
 
+    /* Исправленная анимация свечения кнопок — плавный бесконечный пульс без резких скачков */
     @keyframes neonPulse {
-      0% {
+      0%, 100% {
         box-shadow:
           0 0 6px #7fff00,
           0 0 10px #7fff00,
@@ -85,19 +86,11 @@
       }
       50% {
         box-shadow:
-          0 0 12px #a6ff4d,
-          0 0 25px #a6ff4d,
-          0 0 35px #a6ff4d;
+          0 0 15px #a6ff4d,
+          0 0 30px #a6ff4d,
+          0 0 40px #a6ff4d;
         color: #a6ff4d;
         border-color: #a6ff4d;
-      }
-      100% {
-        box-shadow:
-          0 0 6px #7fff00,
-          0 0 10px #7fff00,
-          0 0 14px #7fff00;
-        color: #7fff00;
-        border-color: #7fff00;
       }
     }
 
@@ -146,7 +139,7 @@
       font-size: 1.1rem;
       border-radius: 10px;
       border: 2px solid #7fff00;
-      animation: neonPulse 3.5s ease-in-out infinite;
+      animation: neonPulse 4s ease-in-out infinite;
       display: inline-block;
       transition: transform 0.3s ease;
       user-select: none;
@@ -217,7 +210,7 @@
     Ваш браузер не поддерживает видео.
   </video>
 
-  <h1>Купите LiixWare!</h1>
+  <h1>Купжите LiixWare!</h1>
 
   <div class="description">
     ❤️Спасибо, что используете или собираетесь купить наш софт, покупка осуществляется на сайте Donation Alerts после прочтения обязательной регистрации в нашем
