@@ -19,7 +19,6 @@
       overflow: hidden;
     }
 
-    /* Фоновое видео */
     video#bg-video {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -28,7 +27,6 @@
       filter: brightness(0.35);
     }
 
-    /* Анимации */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -55,7 +53,8 @@
 
     .description { animation-delay: 0.3s; }
     .donate-button { animation-delay: 0.5s; }
-    .support-button { animation-delay: 0.7s; }
+    .support-launcher { animation-delay: 0.6s; }
+    .support-bot { animation-delay: 0.7s; }
     .contact { animation-delay: 0.9s; }
     .legal { animation-delay: 1.1s; }
     footer { animation-delay: 1.3s; }
@@ -74,24 +73,25 @@
       z-index: 1;
     }
 
-    .donate-button a,
-    .support-button a {
-      background-color: #7fff00;
-      color: #121212;
+    .neon-button {
+      background: #121212;
+      color: #7fff00;
       text-decoration: none;
       padding: 12px 28px;
       font-weight: 700;
       font-size: 1.1rem;
       border-radius: 10px;
-      box-shadow: 0 0 15px #7fff00;
-      transition: background-color 0.3s ease;
+      border: 2px solid #7fff00;
+      box-shadow: 0 0 10px #7fff00, 0 0 20px #7fff00, 0 0 30px #7fff00;
+      transition: all 0.3s ease;
       display: inline-block;
+      position: relative;
     }
 
-    .donate-button a:hover,
-    .support-button a:hover {
-      background-color: #5ac600;
-      box-shadow: 0 0 25px #5ac600;
+    .neon-button:hover {
+      box-shadow: 0 0 20px #7fff00, 0 0 40px #7fff00, 0 0 60px #7fff00;
+      transform: scale(1.05);
+      background-color: #1a1a1a;
     }
 
     .contact {
@@ -135,7 +135,6 @@
       text-align: center;
     }
 
-    /* Водяной знак */
     .watermark {
       position: fixed;
       bottom: 10px;
@@ -151,7 +150,6 @@
 </head>
 <body>
 
-  <!-- Видео -->
   <video autoplay muted loop id="bg-video" playsinline>
     <source src="videos/background.mp4" type="video/mp4" />
     Ваш браузер не поддерживает видео.
@@ -164,26 +162,23 @@
     телеграмм боте перед покупкой и подключения к боту свой Donation Alerts можете покупать и заходить к боту он проверит оплату и выдаст ключ🔑
   </div>
 
-   <div class="donate-button">
-  <a class="neon-button" href="https://www.donationalerts.com/r/prosto_b1?" target="_blank" rel="noopener noreferrer">
-    💸 Купить софт
-  </a>
-</div>
-
-  
-<div class="support-button">
-  <a class="neon-button" href="https://github.com/Prostospec/LiixWare/releases/latest/download/launcher.exe" download>
-    📥 Скачать лаунчер
-  </a>
-</div>
-  
- 
-  <div class="support-button">
-    <a href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">
-           🤖 Связаться с ботом
-     </a>
+  <div class="donate-button">
+    <a class="neon-button" href="https://www.donationalerts.com/r/prosto_b1?" target="_blank" rel="noopener noreferrer">
+      💸 Купить софт
+    </a>
   </div>
-  
+
+  <div class="support-button support-launcher">
+    <a class="neon-button" href="https://github.com/Prostospec/LiixWare/releases/latest/download/launcher.exe" download>
+      📥 Скачать лаунчер
+    </a>
+  </div>
+
+  <div class="support-button support-bot">
+    <a class="neon-button" href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">
+      🤖 Связаться с ботом
+    </a>
+  </div>
 
   <div class="contact">
     Вопросы? Пиши нам: <a href="https://t.me/liixbuybot" target="_blank">@liixbuybot</a>
