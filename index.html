@@ -26,9 +26,15 @@
       object-fit: cover;
       z-index: -1;
       filter: brightness(0.35);
+      animation: bgFadeIn 0.5s ease forwards;
     }
 
-    /* Анимации */
+    @keyframes bgFadeIn {
+      from { filter: brightness(0); }
+      to { filter: brightness(0.35); }
+    }
+
+    /* Анимации появления */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -83,11 +89,12 @@
       z-index: 1;
     }
 
-    /* Кнопки с переливом линий */
+    /* Кнопки с анимацией линий (перелив) */
     .donate-button a,
     .support-button a,
-    .contact-button a {
+    .support-button:last-of-type a {
       position: relative;
+      z-index: 1;
       background-color: #7fff00;
       color: #121212;
       text-decoration: none;
@@ -99,34 +106,42 @@
       transition: background-color 0.3s ease;
       display: inline-block;
       overflow: hidden;
-      z-index: 1; /* Поверх псевдоэлемента */
     }
 
+    /* Чтобы текст и эмодзи всегда были сверху */
+    .donate-button a,
+    .support-button a,
+    .support-button:last-of-type a {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Перелив линий */
     .donate-button a::before,
     .support-button a::before,
-    .contact-button a::before {
+    .support-button:last-of-type a::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
       border-radius: 10px;
-      pointer-events: none; /* Чтобы линии не мешали кликам */
-      z-index: 0; /* Под текстом */
+      pointer-events: none;
+      z-index: 0;
       background-image: repeating-linear-gradient(
         25deg,
-        rgba(0, 0, 0, 0.2) 0px,
-        rgba(0, 0, 0, 0.2) 20px,
+        rgba(0, 0, 0, 0.3) 0,
+        rgba(0, 0, 0, 0.3) 20px,
         rgba(127, 255, 0, 0.6) 20px,
         rgba(127, 255, 0, 0.6) 40px
       );
-      background-size: 200% 100%;
+      background-size: 160px 100%;
       animation: shimmer 5s linear infinite;
     }
 
     .donate-button a:hover,
     .support-button a:hover,
-    .contact-button a:hover {
+    .support-button:last-of-type a:hover {
       background-color: #5ac600;
       box-shadow: 0 0 25px #5ac600;
     }
@@ -141,8 +156,6 @@
       color: #7fff00;
       text-decoration: none;
       font-weight: 600;
-      position: relative;
-      z-index: 1;
     }
 
     .contact a:hover {
@@ -215,7 +228,7 @@
     </a>
   </div>
 
-  <div class="contact-button support-button">
+  <div class="support-button">
     <a href="https://t.me/liixbuybot" target="_blank" rel="noopener noreferrer">
       🤖 Связаться с ботом
     </a>
@@ -228,7 +241,7 @@
   <div class="legal">
     <h3>Условия использования</h3>
     <p>
-      Совершая пожертвование, вы подтверждаете добровольность платежа и понимаете, что <strong>возврат средств не осуществляется</strong>.<br>
+      Совершая пожертвование, вы подтверждаете добровольность платежа и понимаете, что <strong>возврат средств не осуществляется</strong>.
       Ключи выдаются через Telegram-бота вручную.
     </p>
     <p>
