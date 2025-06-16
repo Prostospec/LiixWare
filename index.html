@@ -93,20 +93,22 @@
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
-      width: 100%;
+      left: -150%;
+      width: 150%;
       height: 100%;
       background: linear-gradient(
-        120deg,
+        30deg,
         rgba(0, 0, 0, 0.4) 0%,
-        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.05) 50%,
         rgba(0, 0, 0, 0.4) 100%
       );
+      transform: skewX(-20deg);
       animation: enchant-glow 2.5s linear infinite;
+      pointer-events: none;
     }
 
     @keyframes enchant-glow {
-      0% { left: -100%; }
+      0% { left: -150%; }
       100% { left: 100%; }
     }
 
